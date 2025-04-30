@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/rebeca/Documents/Eval/newApp/newApp.csproj",
+      "projectUniqueName": "/home/rebeca/Documents/Eval/newApp/dotnet/newApp.csproj",
       "projectName": "newApp",
-      "projectPath": "/home/rebeca/Documents/Eval/newApp/newApp.csproj",
+      "projectPath": "/home/rebeca/Documents/Eval/newApp/dotnet/newApp.csproj",
       "packagesPath": "/home/rebeca/.nuget/packages/",
-      "outputPath": "/home/rebeca/Documents/Eval/newApp/obj/",
+      "outputPath": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/rebeca/.nuget/NuGet/NuGet.Config"
