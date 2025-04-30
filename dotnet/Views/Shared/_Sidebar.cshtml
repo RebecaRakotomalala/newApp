@@ -1,0 +1,50 @@
+<!-- /Views/Shared/_Sidebar.cshtml -->
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h2>Mon Application</h2>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <ul>
+            <li class="active">
+                <a asp-controller="Home" asp-action="Privacy">
+                    <i class="fas fa-home"></i>
+                    <span>Accueil</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="Dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="Tableau">
+                    <i class="fas fa-user"></i>
+                    <span>Tableau</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Paramètres</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <div class="user-details">
+                <span class="user-name">Rebeca</span>
+                <span class="user-role">Administrateur</span>
+            </div>
+        </div>
+    </div>
+</div>

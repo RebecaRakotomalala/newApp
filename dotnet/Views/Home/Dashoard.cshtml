@@ -1,0 +1,169 @@
+@{
+    ViewData["Title"] = "Tableau de bord";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style2.css"> <!-- Style de la sidebar -->
+    <link rel="stylesheet" href="~/css/styleDashboard.css"> <!-- Style spécifique au dashboard -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        @await Html.PartialAsync("_Sidebar")
+        
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <div class="content-header">
+                <h1>Tableau de bord</h1>
+                <div class="header-actions">
+                    <div class="date-selector">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Mai 2023</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-content">
+                <!-- Cartes de statistiques -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1,248</h3>
+                            <p>Utilisateurs actifs</p>
+                            <span class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i> 12.5%
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>356</h3>
+                            <p>Nouvelles commandes</p>
+                            <span class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i> 8.3%
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon bg-warning">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>€12,548</h3>
+                            <p>Chiffre d'affaires</p>
+                            <span class="stat-trend negative">
+                                <i class="fas fa-arrow-down"></i> 3.2%
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon bg-danger">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>124</h3>
+                            <p>Messages non lus</p>
+                            <span class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i> 24.7%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Graphiques et tableaux -->
+                <div class="dashboard-grid">
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>Activité des utilisateurs</h3>
+                            <div class="chart-actions">
+                                <button class="btn-chart">7j</button>
+                                <button class="btn-chart active">30j</button>
+                                <button class="btn-chart">90j</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <!-- Placeholder pour le graphique -->
+                            <div class="chart-placeholder">
+                                <img src="https://via.placeholder.com/600x300?text=Graphique+Utilisateurs" alt="Graphique">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>Sources de trafic</h3>
+                        </div>
+                        <div class="chart-container">
+                            <!-- Placeholder pour le graphique -->
+                            <div class="chart-placeholder">
+                                <img src="https://via.placeholder.com/600x300?text=Graphique+Trafic" alt="Graphique">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-activity">
+                        <div class="card-header">
+                            <h3>Activité récente</h3>
+                            <a href="#" class="view-all">Voir tout</a>
+                        </div>
+                        <ul class="activity-list">
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Nouvel utilisateur inscrit</p>
+                                    <span class="activity-time">Il y a 2 min</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Nouvelle commande #1254</p>
+                                    <span class="activity-time">Il y a 15 min</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Nouveau message reçu</p>
+                                    <span class="activity-time">Il y a 1h</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="activity-icon">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Facture #458 payée</p>
+                                    <span class="activity-time">Il y a 3h</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

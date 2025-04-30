@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets/css/style2.css"
     },
     {
+      "Id": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/styleDashboard.css",
+      "PackagePath": "staticwebassets/css/styleDashboard.css"
+    },
+    {
+      "Id": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/styleTab.css",
+      "PackagePath": "staticwebassets/css/styleTab.css"
+    },
+    {
       "Id": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
     },

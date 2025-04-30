@@ -1,0 +1,112 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des données</title>
+    <link rel="stylesheet" href="~/css/style2.css"> <!-- Incluez le style de la sidebar -->
+    <link rel="stylesheet" href="~/css/styleTab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Inclure la sidebar -->
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="main-content">
+        
+            <div class="table-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Rechercher...">
+                </div>
+                <button class="btn-add">
+                    <i class="fas fa-plus"></i> Ajouter
+                </button>
+            </div>
+        
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Statut</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jean Dupont</td>
+                            <td>jean.dupont@example.com</td>
+                            <td>Administrateur</td>
+                            <td><span class="status active">Actif</span></td>
+                            <td>12/05/2023</td>
+                            <td class="actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Marie Lambert</td>
+                            <td>marie.l@example.com</td>
+                            <td>Éditeur</td>
+                            <td><span class="status active">Actif</span></td>
+                            <td>15/05/2023</td>
+                            <td class="actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Pierre Durand</td>
+                            <td>pierre.d@example.com</td>
+                            <td>Utilisateur</td>
+                            <td><span class="status inactive">Inactif</span></td>
+                            <td>18/05/2023</td>
+                            <td class="actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Sophie Martin</td>
+                            <td>sophie.m@example.com</td>
+                            <td>Éditeur</td>
+                            <td><span class="status pending">En attente</span></td>
+                            <td>20/05/2023</td>
+                            <td class="actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Lucie Petit</td>
+                            <td>lucie.p@example.com</td>
+                            <td>Utilisateur</td>
+                            <td><span class="status active">Actif</span></td>
+                            <td>22/05/2023</td>
+                            <td class="actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

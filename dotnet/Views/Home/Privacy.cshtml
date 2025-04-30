@@ -1,6 +1,49 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    Layout = null;
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des données</title>
+    <link rel="stylesheet" href="~/css/style2.css"> <!-- Incluez le style de la sidebar -->
+    <link rel="stylesheet" href="~/css/styleTab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Inclure la sidebar -->
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="main-content">
+            <div class="content-header">
+                <h1>Bienvenue sur votre tableau de bord</h1>
+            </div>
+            
+            <div class="content-body">
+                <div class="card">
+                    <h3>Vos statistiques</h3>
+                    <p>Voici quelques informations importantes...</p>
+                </div>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h4><i class="fas fa-users"></i> Utilisateurs</h4>
+                        <p>150 inscrits</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-shopping-cart"></i> Commandes</h4>
+                        <p>42 cette semaine</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-chart-pie"></i> Performance</h4>
+                        <p>+12% ce mois</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

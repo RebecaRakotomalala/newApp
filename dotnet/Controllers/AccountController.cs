@@ -25,7 +25,7 @@ namespace newApp.Controllers
 
                 if (result["message"] != null && result["message"].ToString().Contains("Logged In"))
                 {
-                    return RedirectToAction("Sidebar", "Home");
+                    return RedirectToAction("Privacy", "Home");
                 }
                 else
                 {
