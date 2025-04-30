@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "KYoq0LJ1GB0=",
+  "success": true,
+  "projectFilePath": "/home/rebeca/Documents/Eval/newApp/newApp.csproj",
+  "expectedPackageFiles": [
+    "/home/rebeca/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

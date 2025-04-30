@@ -1,0 +1,64 @@
+body {
+    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Ajouté pour que le titre soit au-dessus du formulaire */
+}
+
+.card {
+    background: linear-gradient(to bottom right, #ffffff, #f0f2f5);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+h4 {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;  /* Espacement entre le titre et la carte */
+    color: #444;
+}
+
+.input-group-text {
+    background-color: #8e9eab;
+    color: white;
+    border: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+.form-control::placeholder {
+    color: #888;
+}
+
+.btn-primary {
+    background-color: #8e9eab;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #6c7a89;
+}
+
+.alert-danger {
+    border-radius: 8px;
+}

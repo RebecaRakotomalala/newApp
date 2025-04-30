@@ -1,0 +1,21 @@
+@model List<newApp.Models.Module>
+
+@{
+    ViewData["Title"] = "Liste des Modules";
+}
+
+<h1>Liste des Modules</h1>
+
+@if (ViewBag.Error != null)
+{
+    <div style="color:red;">Erreur: @ViewBag.Error</div>
+}
+else
+{
+    <ul>
+        @foreach (var module in Model)
+        {
+            <li>@module.module</li>
+        }
+    </ul>
+}
