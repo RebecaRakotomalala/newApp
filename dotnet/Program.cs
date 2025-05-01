@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<newApp.Services.ModuleService>();
 builder.Services.AddHttpClient<newApp.Services.LoginService>();
+builder.Services.AddHttpClient<newApp.Services.FournisseurService>();
 
 var app = builder.Build();
 

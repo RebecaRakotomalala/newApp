@@ -1,0 +1,56 @@
+@model List<newApp.Models.Fournisseur>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des données</title>
+    <link rel="stylesheet" href="~/css/style2.css"> 
+    <link rel="stylesheet" href="~/css/liste.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Inclure la sidebar -->
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="main-content">
+            <h2>Liste des fournisseurs</h2>
+
+            @if (ViewBag.Erreur != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Erreur</div>
+            }
+            else if (Model != null && Model.Count > 0)
+            {
+                <form method="get" action="/Fournisseur/Details" class="select-form">
+                    <div class="custom-select-container">
+                        <select name="id" class="custom-select" required>
+                            <option value="">-- Sélectionnez un fournisseur --</option>
+                            @foreach (var f in Model)
+                            {
+                                <option value="@f.Id">@f.name</option>
+                            }
+                        </select>
+                        <div class="select-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="select-button">
+                        <i class="fas fa-search"></i> Voir détails
+                    </button>
+                </form>
+            }
+            else
+            {
+                <p>Aucun fournisseur trouvé.</p>
+            }
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* Conteneur principal */
+.select-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    max-width: 600px;
+}
+
+/* Conteneur de la liste déroulante */
+.custom-select-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+/* Style de base de la liste */
+.custom-select {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    font-size: 16px;
+    border: 2px solid #c3cfe2;
+    border-radius: 8px;
+    background-color: white;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Style au survol */
+.custom-select:hover {
+    border-color: #8e9eab;
+}
+
+/* Style quand la liste est ouverte */
+.custom-select:focus {
+    outline: none;
+    border-color: #5d7a9e;
+    box-shadow: 0 0 0 3px rgba(93, 122, 158, 0.2);
+}
+
+/* Flèche personnalisée */
+.select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #5d7a9e;
+    transition: transform 0.3s;
+}
+
+.custom-select:focus + .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Style du bouton */
+.select-button {
+    padding: 12px 20px;
+    background-color: #5d7a9e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.select-button:hover {
+    background-color: #4a6380;
+}
+
+/* Style des options */
+.custom-select option {
+    padding: 10px;
+    background: white;
+}
+
+.custom-select option:first-child {
+    color: #7f8c8d;
+}
+
+/* Message d'erreur */
+.alert-danger {
+    padding: 15px;
+    background-color: #feeaea;
+    color: #e74c3c;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #e74c3c;
+}
