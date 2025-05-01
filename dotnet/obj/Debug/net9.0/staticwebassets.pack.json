@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/newApp.f0t10cs3p8.bundle.scp.css"
     },
     {
+      "Id": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/liste.css",
+      "PackagePath": "staticwebassets/css/liste.css"
+    },
+    {
       "Id": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

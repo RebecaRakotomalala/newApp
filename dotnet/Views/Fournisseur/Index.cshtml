@@ -28,13 +28,13 @@
             }
             else if (Model != null && Model.Count > 0)
             {
-                <form method="get" action="/Fournisseur/Details" class="select-form">
+                <form method="get" action="/Fournisseur/Index" class="select-form">
                     <div class="custom-select-container">
                         <select name="id" class="custom-select" required>
                             <option value="">-- Sélectionnez un fournisseur --</option>
                             @foreach (var f in Model)
                             {
-                                <option value="@f.Id">@f.name</option>
+                                <option value="@f.name">@f.name</option>
                             }
                         </select>
                         <div class="select-arrow">
@@ -50,6 +50,38 @@
             {
                 <p>Aucun fournisseur trouvé.</p>
             }
+
+            <!-- Affichage des devis si un fournisseur est sélectionné -->
+            @if (ViewBag.Devis != null && ((List<newApp.Models.AppelOffre>)ViewBag.Devis).Count > 0)
+            {
+                <h3>Devis pour le fournisseur : @ViewBag.Fournisseur</h3>
+                <table class="devis-table">
+                    <thead>
+                        <tr>
+                            <th>Numéro Devis</th>
+                            <th>Fournisseur</th>
+                            <th>Date Transaction</th>
+                            <th>Date Livraison Prévue</th>
+                            <th>Statut</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var devis in (List<newApp.Models.AppelOffre>)ViewBag.Devis)
+                        {
+                            <tr>
+                                <td>@devis.NumeroDevis</td>
+                                <td>@devis.Supplier</td>
+                                <td>@devis.DateTransaction.ToString("dd-MM-yyyy")</td>
+                                <td>@devis.DateLivraisonPrevue.ToString("dd-MM-yyyy")</td>
+                                <td>@devis.Status</td>
+                                <td>@devis.Message</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
         </div>
     </div>
 </body>

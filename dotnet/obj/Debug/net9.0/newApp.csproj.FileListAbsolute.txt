@@ -202,6 +202,7 @@
 /home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/newApp.pdb
 /home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/newApp.genruntimeconfig.cache
 /home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/ref/newApp.dll
-/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/7x3d363f1f-7kznb0vd5x.gz
 /home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-83y3wo7z3t.gz
 /home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/n6dklvqgu3-x0l8pj7jww.gz
+/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/nmf3oioqg8-ok2l04i5tq.gz
+/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/7x3d363f1f-xuh8e267ir.gz
