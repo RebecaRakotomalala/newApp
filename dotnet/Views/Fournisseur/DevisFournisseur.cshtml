@@ -1,0 +1,98 @@
+@model List<Devis>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Liste des Devis du Fournisseur";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des données</title>
+    <link rel="stylesheet" href="~/css/style2.css"> 
+    <link rel="stylesheet" href="~/css/liste.css">
+    <link rel="stylesheet" href="~/css/styleTab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Inclure la sidebar -->
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="main-content">
+
+            <h3>Request for Quotation @Model.FirstOrDefault()?.RequestForQuotation</h3>
+
+            @if (ViewBag.Erreur != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Erreur</div>
+            }
+            else if (Model != null && Model.Any())
+            {
+                <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Numéro Devis</th>
+                            <th>Date Transaction</th>
+                            @* <th>Statut</th> *@
+                            <th>Fournisseur</th>
+                            <th>Code Article</th>
+                            <th>Quantité</th>
+                            <th>Prix Unitaire</th>
+                            <th>Montant</th>
+                            <th>Editer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var devis in Model)
+                        {
+                            <tr>
+                                <td class="truncate">@devis.SupplierQuotationNumber</td>
+                                <td class="truncate">@devis.TransactionDate.ToString("dd/MM/yyyy")</td>
+                                @* <td class="truncate">@devis.Status</td> *@
+                                <td class="truncate">@devis.Supplier</td>
+                                <td class="truncate">@devis.ItemCode</td>
+                                <td class="truncate">@devis.Quantity</td>
+                                <td class="truncate">@devis.Rate</td>
+                                <td class="truncate">@devis.Amount</td>
+                                @if (devis.Status == "Draft"){
+                                <td class="actions">
+                                    <form method="post" action="/Fournisseur/UpdateDevis" class="compact-form">
+                                        <input type="hidden" name="id" value="@devis.Name">
+                                        <input type="hidden" name="idNumDevis" value="@devis.SupplierQuotationNumber">
+                                        <div class="input-group">
+                                            <input type="number" 
+                                                name="rate" 
+                                                value="@devis.Rate" 
+                                                class="rate-input"
+                                                min="0"
+                                                step="0.01"
+                                                title="Modifier le taux">
+                                            <button type="submit" class="btn-save" title="Enregistrer les modifications">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                                }
+                                else {
+                                    <td class="truncate">@devis.Status</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                </div>
+            }
+            else
+            {
+                <p>Aucun devis trouvé pour cet appel d'offre et ce fournisseur.</p>
+            }
+
+        </div>
+    </div>
+</body>
+</html>

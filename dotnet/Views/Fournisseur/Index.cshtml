@@ -12,6 +12,7 @@
     <title>Tableau des données</title>
     <link rel="stylesheet" href="~/css/style2.css"> 
     <link rel="stylesheet" href="~/css/liste.css">
+    <link rel="stylesheet" href="~/css/styleTab.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
         @await Html.PartialAsync("_Sidebar")
 
         <div class="main-content">
-            <h2>Liste des fournisseurs</h2>
+            <h2>Supplier</h2>
 
             @if (ViewBag.Erreur != null)
             {
@@ -42,7 +43,7 @@
                         </div>
                     </div>
                     <button type="submit" class="select-button">
-                        <i class="fas fa-search"></i> Voir détails
+                        <i class="fas fa-search"></i> Recherchée
                     </button>
                 </form>
             }
@@ -54,16 +55,19 @@
             <!-- Affichage des devis si un fournisseur est sélectionné -->
             @if (ViewBag.Devis != null && ((List<newApp.Models.AppelOffre>)ViewBag.Devis).Count > 0)
             {
-                <h3>Devis pour le fournisseur : @ViewBag.Fournisseur</h3>
-                <table class="devis-table">
+                <h3>Request for Quotation : @ViewBag.Fournisseur</h3>
+                
+                <div class="table-responsive">
+                <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Numéro Devis</th>
+                            <th>NumeroDevis</th>
                             <th>Fournisseur</th>
-                            <th>Date Transaction</th>
-                            <th>Date Livraison Prévue</th>
+                            @* <th>Date Transaction</th>
+                            <th>Date Livraison Prévue</th> *@
                             <th>Statut</th>
                             <th>Message</th>
+                            <th>Devis</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,16 +76,67 @@
                             <tr>
                                 <td>@devis.NumeroDevis</td>
                                 <td>@devis.Supplier</td>
-                                <td>@devis.DateTransaction.ToString("dd-MM-yyyy")</td>
-                                <td>@devis.DateLivraisonPrevue.ToString("dd-MM-yyyy")</td>
+                                @* <td>@devis.DateTransaction.ToString("dd-MM-yyyy")</td>
+                                <td>@devis.DateLivraisonPrevue.ToString("dd-MM-yyyy")</td> *@
                                 <td>@devis.Status</td>
                                 <td>@devis.Message</td>
+                                <td class="actions">
+                                    <form method="get" action="/Fournisseur/DevisFournisseur" class="inline-form">
+                                        <input type="hidden" name="rfqName" value="@devis.NumeroDevis">
+                                        <input type="hidden" name="fournisseur" value="@devis.Supplier">
+                                        <button type="submit" class="btn-view" title="Consulter le devis">
+                                            <i class="fas fa-file-contract"></i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         }
                     </tbody>
                 </table>
+                </div>
             }
+            @if (ViewBag.BonCommande != null && ((List<newApp.Models.BonCommande>)ViewBag.BonCommande).Count > 0)
+            {
+                <h3>Purchase Order : @ViewBag.Fournisseur</h3>
 
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Commande</th>
+                                <th>Fournisseur</th>
+                                <th>Article</th>
+                                <th>Quantité</th>
+                                <th>Prix Unitaire</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var bon in (List<newApp.Models.BonCommande>)ViewBag.BonCommande)
+                            {
+                                <tr>
+                                    <td>@bon.PurchaseOrder</td>
+                                    <td>@bon.Supplier</td>
+                                    <td>@bon.ItemCode</td>
+                                    <td>@bon.Quantity</td>
+                                    <td>@bon.Rate</td>
+                                    <td>@bon.Amount</td>
+                                    @if (bon.Status == "To Receive and Bill"){
+                                        <td style="color: #ff9800;">@bon.Status</td>
+                                    } else if ((bon.Status == "To Receive")) {
+                                        <td style="color: #d6b004;">@bon.Status</td>  
+                                    } else if ((bon.Status == "Draft")) {
+                                        <td style="color: #2911ff;">@bon.Status</td>  
+                                    } else {
+                                        <td>@bon.Status</td> 
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
         </div>
     </div>
 </body>

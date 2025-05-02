@@ -1,92 +1,223 @@
-/* Conteneur principal */
-.select-form {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    max-width: 600px;
+/* ============ Styles globaux améliorés ============ */
+.main-content {
+    padding: 2rem;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    margin: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Conteneur de la liste déroulante */
+.main-content h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.75rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.75rem;
+}
+
+.main-content h3 {
+    color: #2c3e50; /* Couleur plus foncée pour meilleur contraste */
+    margin: 1.75rem 0 1rem;
+    font-weight: 600; /* Poids plus fort pour hiérarchie claire */
+    font-size: 1.5rem; /* Taille légèrement augmentée */
+    line-height: 1.3; /* Meilleure lisibilité */
+    position: relative; /* Pour le pseudo-élément */
+    padding-bottom: 0.75rem; /* Espace pour la bordure */
+    display: inline-block; /* Pour limiter la largeur de la bordure */
+}
+
+/* Effet de soulignement élégant */
+.main-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px; /* Largeur de la bordure */
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #6dd5fa); /* Dégradé moderne */
+    border-radius: 3px;
+}
+
+/* Animation au survol */
+.main-content h3:hover {
+    color: #3498db; /* Changement de couleur interactif */
+    transition: color 0.3s ease;
+}
+
+.main-content h3:hover::after {
+    width: 100%; /* Animation de la bordure */
+    transition: width 0.3s ease;
+}
+
+/* Variante pour contexte secondaire */
+.main-content h3.secondary {
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.main-content h3.secondary::after {
+    background: #e2e8f0; /* Bordure plus discrète */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content h3 {
+        font-size: 1.3rem;
+        margin: 1.5rem 0 0.75rem;
+    }
+}
+
+/* ============ Styles du formulaire améliorés ============ */
+.select-form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.select-form:hover {
+    transform: translateY(-2px);
+}
+
 .custom-select-container {
     position: relative;
     flex-grow: 1;
+    min-width: 300px;
 }
 
-/* Style de base de la liste */
 .custom-select {
     width: 100%;
-    padding: 12px 40px 12px 15px;
-    font-size: 16px;
-    border: 2px solid #c3cfe2;
+    padding: 0.85rem 3rem 0.85rem 1.25rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
     border-radius: 8px;
-    background-color: white;
+    background-color: #fff;
     appearance: none;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #4a5568;
+    font-weight: 500;
 }
 
-/* Style au survol */
 .custom-select:hover {
-    border-color: #8e9eab;
+    border-color: #c3dafe;
+    box-shadow: 0 1px 3px rgba(66, 153, 225, 0.1);
 }
 
-/* Style quand la liste est ouverte */
 .custom-select:focus {
     outline: none;
-    border-color: #5d7a9e;
-    box-shadow: 0 0 0 3px rgba(93, 122, 158, 0.2);
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
 }
 
-/* Flèche personnalisée */
 .select-arrow {
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: 1.25rem;
     transform: translateY(-50%);
     pointer-events: none;
-    color: #5d7a9e;
-    transition: transform 0.3s;
+    color: #718096;
+    transition: all 0.3s;
 }
 
 .custom-select:focus + .select-arrow {
+    color: #4299e1;
     transform: translateY(-50%) rotate(180deg);
 }
 
-/* Style du bouton */
 .select-button {
-    padding: 12px 20px;
-    background-color: #5d7a9e;
+    padding: 0.85rem 1.75rem;
+    background-color: #4299e1;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.75rem;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(66, 153, 225, 0.2);
 }
 
 .select-button:hover {
-    background-color: #4a6380;
+    background-color: #3182ce;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(66, 153, 225, 0.25);
 }
 
-/* Style des options */
+.select-button:active {
+    transform: translateY(0);
+}
+
+.select-button i {
+    font-size: 0.9rem;
+}
+
+/* Styles des options */
 .custom-select option {
-    padding: 10px;
-    background: white;
+    padding: 0.75rem;
+    background: #fff;
+    color: #4a5568;
 }
 
 .custom-select option:first-child {
-    color: #7f8c8d;
+    color: #a0aec0;
+    font-style: italic;
 }
 
-/* Message d'erreur */
+/* ============ Messages et états ============ */
 .alert-danger {
-    padding: 15px;
-    background-color: #feeaea;
-    color: #e74c3c;
+    padding: 1rem 1.5rem;
+    background-color: #fff5f5;
+    color: #e53e3e;
     border-radius: 8px;
-    margin-bottom: 20px;
-    border-left: 4px solid #e74c3c;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #e53e3e;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 2px 5px rgba(229, 62, 62, 0.1);
+}
+
+.alert-danger i {
+    font-size: 1.2rem;
+}
+
+.main-content p {
+    color: #718096;
+    font-style: italic;
+    padding: 1rem;
+    background-color: #f7fafc;
+    border-radius: 8px;
+    border-left: 3px solid #cbd5e0;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+    .select-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .custom-select-container {
+        min-width: auto;
+    }
+    
+    .select-button {
+        justify-content: center;
+    }
+    
+    .main-content {
+        padding: 1.25rem;
+        margin: 1rem;
+    }
 }
