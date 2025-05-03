@@ -1,0 +1,142 @@
+@model List<newApp.Models.Facture>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des données</title>
+    <link rel="stylesheet" href="~/css/style2.css"> 
+    <link rel="stylesheet" href="~/css/liste.css">
+    <link rel="stylesheet" href="~/css/styleTab.css">
+    <link rel="stylesheet" href="~/css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Dans le head -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Avant la fermeture du body -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Inclure la sidebar -->
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="main-content">
+            <h2>Liste des Factures</h2>
+            <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Date de création</th>
+                        <th>Date d'échéance</th>
+                        <th>Statut</th>
+                        <th>Fournisseur</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var facture in Model)
+                    {
+                        <tr>
+                            <td>@facture.Name</td>
+                            <td>@facture.PostingDate.ToString("dd/MM/yyyy")</td>
+                            <td>@facture.DueDate.ToString("dd/MM/yyyy")</td>
+                            <td>@facture.Status</td>
+                            <td>@facture.Supplier</td>
+                            <td>
+                                <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#modalDetails-@facture.Name">
+                                    <i class="fas fa-list-alt text-info"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modals pour chaque facture -->
+        @foreach (var facture in Model)
+        {
+            <div class="modal fade modal-facture" id="modalDetails-@facture.Name" tabindex="-1" role="dialog" aria-labelledby="modalDetailsLabel-@facture.Name" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDetailsLabel-@facture.Name">Détails de la facture: @facture.Name</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <strong>Date de création:</strong> @facture.PostingDate.ToString("dd/MM/yyyy")
+                                </div>
+                                <div class="col-md-4">
+                                    <strong>Date d'échéance:</strong> @facture.DueDate.ToString("dd/MM/yyyy")
+                                </div>
+                                <div class="col-md-4">
+                                    <strong>Statut:</strong> @facture.Status
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <strong>Fournisseur:</strong> @facture.Supplier
+                                </div>
+                            </div>
+                            
+                            <h6>Articles</h6>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Code article</th>
+                                            <th>Nom article</th>
+                                            <th>Quantité</th>
+                                            <th>Prix unitaire</th>
+                                            <th>Montant</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (facture.Items != null && facture.Items.Any())
+                                        {
+                                            foreach (var item in facture.Items)
+                                            {
+                                                <tr>
+                                                    <td>@item.ItemCode</td>
+                                                    <td>@item.ItemName</td>
+                                                    <td>@item.Quantity</td>
+                                                    <td>@item.Rate</td>
+                                                    <td>@item.Amount</td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="5">Aucun article.</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

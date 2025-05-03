@@ -5,6 +5,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<newApp.Services.ModuleService>();
 builder.Services.AddHttpClient<newApp.Services.LoginService>();
 builder.Services.AddHttpClient<newApp.Services.FournisseurService>();
+builder.Services.AddHttpClient<newApp.Services.CommandeService>();
+builder.Services.AddHttpClient<newApp.Services.FactureService>();
 
 var app = builder.Build();
 

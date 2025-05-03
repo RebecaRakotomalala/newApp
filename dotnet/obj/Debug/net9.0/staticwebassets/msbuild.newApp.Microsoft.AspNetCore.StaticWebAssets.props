@@ -12,11 +12,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7e6tjcx9c5</Fingerprint>
-      <Integrity>YUdjRBcnokSN9IEfGaWSi1VNtXwXVjVHP730StYkjQk=</Integrity>
+      <Fingerprint>dwr1p3vn8m</Fingerprint>
+      <Integrity>fZisc//5nXQ0nmC3GHZOa+REpw3kVoxLO3cGtH7KBrY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\liste.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\modal.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>newApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/newApp</BasePath>
+      <RelativePath>css/modal.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ljolcrrulc</Fingerprint>
+      <Integrity>gXfZVp1mAd8QRQyV9cto8fnJnKZkEs7McxNsicCqSow=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\modal.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))">
       <SourceType>Package</SourceType>
@@ -66,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>xuh8e267ir</Fingerprint>
-      <Integrity>l73xqLOpeeLMWCFnVEUYLE0K9DGPCKV8UyNqjPWkrPA=</Integrity>
+      <Fingerprint>0dwdc986u9</Fingerprint>
+      <Integrity>FDUtBzpUyu8YSCdGhv3HSi+rB8L5xAV7akTet3uuwZ4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style2.css'))</OriginalItemSpec>

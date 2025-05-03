@@ -58,7 +58,7 @@ namespace newApp.Controllers
             try
             {
                 var devis = await _fournisseurService.GetDevisParAppelOffreEtFournisseur(rfqName, fournisseur);
-                return View("DevisFournisseur", devis); // Assurez-vous que la vue "DevisFournisseur.cshtml" existe
+                return View("DevisFournisseur", devis); 
             }
             catch (HttpRequestException ex)
             {

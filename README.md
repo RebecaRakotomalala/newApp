@@ -2,6 +2,7 @@
 
 Clé API:   73350ed9ae7972a
 Save API Secret: 16105bb9f498033
+Cookies : bdb4407e2398d6e52ded2c560458a594a89976aa5e3ed8790913246d
 
 use _abcd022bd4ccf1e6;
 
@@ -68,6 +69,28 @@ WHERE
     sqi.name = 'fkd4540aq8'
 ORDER BY
     sqi.idx
+
+
+SELECT
+            po.name AS purchase_order,
+            po.transaction_date,
+            po.schedule_date,
+            po.status,
+            po.supplier,
+            poi.item_code,
+            poi.qty,
+            poi.rate,
+            poi.amount
+        FROM
+            `tabPurchase Order` AS po
+        JOIN
+            `tabPurchase Order Item` AS poi ON po.name = poi.parent
+        WHERE
+            po.supplier = 'fournisseur3'
+        AND
+            po.status = 'To Receive'
+        ORDER BY
+            po.transaction_date DESC
 
 
 string url = $"http://erpnext.localhost:8000/api/resource/Request%20for%20Quotation?fields=[\"name\",\"transaction_date\",\"status\"]&filters=[['supplier','=', '{fournisseur}']]";
