@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NKKZ/l/P01pjrRgwGw1UEFYLPq5TW/0jpSlm1RMCU2A=",
+  "Hash": "6PCUc7lUEMWsENhJ16QvGqfYNEbLRDfYjCKIqvU983k=",
   "Source": "newApp",
   "BasePath": "_content/newApp",
   "Mode": "Default",
@@ -605,12 +605,12 @@
       "OriginalItemSpec": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-21h74tvd7y.gz",
+      "Identity": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-jn0d9x7fan.gz",
       "SourceId": "newApp",
       "SourceType": "Discovered",
       "ContentRoot": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/newApp",
-      "RelativePath": "css/styleTab#[.{fingerprint=21h74tvd7y}]?.css.gz",
+      "RelativePath": "css/styleTab#[.{fingerprint=jn0d9x7fan}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -619,8 +619,8 @@
       "RelatedAsset": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/styleTab.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "7cftr7uzoa",
-      "Integrity": "GfYFr8fL2+qhOR+0gdOEG0ZD3GQTuViWGToo8nOtdLo=",
+      "Fingerprint": "2gm7bhmtig",
+      "Integrity": "YtwOv7fyhCA/Yt2MlguPpCQ+/vY3boOYtgJx7Un/9nI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/styleTab.css"
@@ -1669,8 +1669,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "21h74tvd7y",
-      "Integrity": "CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw=",
+      "Fingerprint": "jn0d9x7fan",
+      "Integrity": "j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/styleTab.css"
@@ -4768,13 +4768,13 @@
       ]
     },
     {
-      "Route": "css/styleTab.21h74tvd7y.css",
-      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-21h74tvd7y.gz",
+      "Route": "css/styleTab.css",
+      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-jn0d9x7fan.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000454338937"
+          "Quality": "0.000325626832"
         }
       ],
       "ResponseHeaders": [
@@ -4784,19 +4784,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2200"
+          "Value": "3070"
         },
         {
           "Name": "ETag",
-          "Value": "\"GfYFr8fL2+qhOR+0gdOEG0ZD3GQTuViWGToo8nOtdLo=\""
+          "Value": "\"YtwOv7fyhCA/Yt2MlguPpCQ+/vY3boOYtgJx7Un/9nI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 07:34:54 GMT"
+          "Value": "Mon, 05 May 2025 08:18:46 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -4812,26 +4812,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw=\""
+          "Value": "W/\"j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "21h74tvd7y"
-        },
-        {
-          "Name": "label",
-          "Value": "css/styleTab.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw="
+          "Value": "sha256-j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI="
         }
       ]
     },
     {
-      "Route": "css/styleTab.21h74tvd7y.css",
+      "Route": "css/styleTab.css",
       "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/styleTab.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4841,7 +4833,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8905"
+          "Value": "12184"
         },
         {
           "Name": "Content-Type",
@@ -4849,11 +4841,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw=\""
+          "Value": "\"j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 07:34:54 GMT"
+          "Value": "Mon, 05 May 2025 08:18:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI="
+        }
+      ]
+    },
+    {
+      "Route": "css/styleTab.css.gz",
+      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-jn0d9x7fan.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3070"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YtwOv7fyhCA/Yt2MlguPpCQ+/vY3boOYtgJx7Un/9nI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 08:18:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YtwOv7fyhCA/Yt2MlguPpCQ+/vY3boOYtgJx7Un/9nI="
+        }
+      ]
+    },
+    {
+      "Route": "css/styleTab.jn0d9x7fan.css",
+      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-jn0d9x7fan.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000325626832"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3070"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YtwOv7fyhCA/Yt2MlguPpCQ+/vY3boOYtgJx7Un/9nI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 08:18:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jn0d9x7fan"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styleTab.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI="
+        }
+      ]
+    },
+    {
+      "Route": "css/styleTab.jn0d9x7fan.css",
+      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/styleTab.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 08:18:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4863,7 +5000,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "21h74tvd7y"
+          "Value": "jn0d9x7fan"
         },
         {
           "Name": "label",
@@ -4871,13 +5008,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw="
+          "Value": "sha256-j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI="
         }
       ]
     },
     {
-      "Route": "css/styleTab.21h74tvd7y.css.gz",
-      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-21h74tvd7y.gz",
+      "Route": "css/styleTab.jn0d9x7fan.css.gz",
+      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-jn0d9x7fan.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4886,7 +5023,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2200"
+          "Value": "3070"
         },
         {
           "Name": "Content-Type",
@@ -4894,11 +5031,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GfYFr8fL2+qhOR+0gdOEG0ZD3GQTuViWGToo8nOtdLo=\""
+          "Value": "\"YtwOv7fyhCA/Yt2MlguPpCQ+/vY3boOYtgJx7Un/9nI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 07:34:54 GMT"
+          "Value": "Mon, 05 May 2025 08:18:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4916,7 +5053,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "21h74tvd7y"
+          "Value": "jn0d9x7fan"
         },
         {
           "Name": "label",
@@ -4924,144 +5061,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GfYFr8fL2+qhOR+0gdOEG0ZD3GQTuViWGToo8nOtdLo="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleTab.css",
-      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-21h74tvd7y.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000454338937"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2200"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GfYFr8fL2+qhOR+0gdOEG0ZD3GQTuViWGToo8nOtdLo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 07:34:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleTab.css",
-      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/wwwroot/css/styleTab.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8905"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 07:34:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw="
-        }
-      ]
-    },
-    {
-      "Route": "css/styleTab.css.gz",
-      "AssetFile": "/home/rebeca/Documents/Eval/newApp/dotnet/obj/Debug/net9.0/compressed/fed7j9v6sv-21h74tvd7y.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2200"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GfYFr8fL2+qhOR+0gdOEG0ZD3GQTuViWGToo8nOtdLo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 02 May 2025 07:34:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GfYFr8fL2+qhOR+0gdOEG0ZD3GQTuViWGToo8nOtdLo="
+          "Value": "sha256-YtwOv7fyhCA/Yt2MlguPpCQ+/vY3boOYtgJx7Un/9nI="
         }
       ]
     },

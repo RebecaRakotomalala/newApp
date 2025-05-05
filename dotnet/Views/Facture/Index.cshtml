@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="~/css/liste.css">
     <link rel="stylesheet" href="~/css/styleTab.css">
     <link rel="stylesheet" href="~/css/modal.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Dans le head -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -37,11 +38,13 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Date de création</th>
-                        <th>Date d'échéance</th>
-                        <th>Statut</th>
                         <th>Fournisseur</th>
+                        <th>Montant Total TTC</th>
+                        <th>Reste à payer</th>
+                        <th>Montant déjà payé</th>
                         <th>Details</th>
+                        <th>Action</th>
+                        <th>Statut</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,14 +52,50 @@
                     {
                         <tr>
                             <td>@facture.Name</td>
-                            <td>@facture.PostingDate.ToString("dd/MM/yyyy")</td>
-                            <td>@facture.DueDate.ToString("dd/MM/yyyy")</td>
-                            <td>@facture.Status</td>
                             <td>@facture.Supplier</td>
+                            <td>@(facture.GrandTotal.ToString("N2"))</td>
+                            <td>@(facture.OutstandingAmount.ToString("N2"))</td>
+                            <td>@( (facture.GrandTotal - @facture.OutstandingAmount).ToString("N2")) </td>
                             <td>
                                 <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#modalDetails-@facture.Name">
                                     <i class="fas fa-list-alt text-info"></i>
                                 </button>
+                            </td>
+                            <td class="text-center">
+                                <form method="post" action="/Facture/ExportFromErpNext" class="d-inline">
+                                    <input type="hidden" name="factureName" value="@facture.Name" />
+                                    <button type="submit" class="btn btn-link p-0 export-pdf-btn" title="Exporter depuis ERPNext">
+                                        <i class="fas fa-file-pdf text-danger fa-xs"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                @if (facture.Status == "Unpaid" || facture.Status == "Partly Paid" || facture.Status == "Overdue")
+                                {
+                                    <div class="d-flex align-items-center">
+                                        @* <span class="badge badge-pill status-unpaid">@facture.Status</span> *@
+                                        <form method="post" action="/Facture/Paiement" class="compact-form">
+                                            <input type="hidden" name="id" value="@facture.Name">
+                                            <input type="hidden" name="supplier" value="@facture.Supplier">
+                                            <div class="input-group" style="width: auto;">
+                                                <input type="number" 
+                                                    name="rate" 
+                                                    value="@facture.OutstandingAmount" 
+                                                    class="form-control rate-input"
+                                                    min="0"
+                                                    step="0.01"
+                                                    title="Modifier le taux">
+                                                <button type="submit" class="btn-save" title="Enregistrer les modifications">
+                                                    <i class="fas fa-check"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-pill status-paid">@facture.Status</span>
+                                }
                             </td>
                         </tr>
                     }

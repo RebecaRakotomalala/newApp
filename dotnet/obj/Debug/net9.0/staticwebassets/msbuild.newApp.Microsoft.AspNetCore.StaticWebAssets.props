@@ -120,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>21h74tvd7y</Fingerprint>
-      <Integrity>CmbUcoVTUjbBJ1qEkzHHVY38DYTMwFPrBGWL2FKr6sw=</Integrity>
+      <Fingerprint>jn0d9x7fan</Fingerprint>
+      <Integrity>j0FExr8XGcoov7zmFLEzOrxPjB0BozAU9Rtm/cM8RxI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\styleTab.css'))</OriginalItemSpec>

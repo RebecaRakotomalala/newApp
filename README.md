@@ -7,6 +7,9 @@ Cookies : bdb4407e2398d6e52ded2c560458a594a89976aa5e3ed8790913246d
 use _abcd022bd4ccf1e6;
 
 
+wine /opt/looping-mcd/Looping.exe
+
+
 ------- Voir appel d'ouffre where fournisseur
 SELECT 
     rqf.name AS numero_devis,
@@ -93,4 +96,60 @@ SELECT
             po.transaction_date DESC
 
 
-string url = $"http://erpnext.localhost:8000/api/resource/Request%20for%20Quotation?fields=[\"name\",\"transaction_date\",\"status\"]&filters=[['supplier','=', '{fournisseur}']]";
+
+
+
+
+| Colonne              | Description                                                               |
+| -------------------- | ------------------------------------------------------------------------- |
+| `grand_total`        | Montant total de la facture (TTC — y compris taxes, frais, remises, etc.) |
+| `outstanding_amount` | **Reste à payer** (le montant non encore payé sur cette facture)          |
+| `paid_amount`        | Montant déjà payé (utile si paiement partiel)                             |
+| `total`              | Montant total **hors taxes et remises**                                   |
+
+SELECT
+    pi.name AS invoice_name,
+    pi.supplier,
+    pi.grand_total,
+    pi.outstanding_amount,
+    pe.name AS payment_name,
+    pe.party_type,
+    pe.mode_of_payment,
+    pe.paid_amount,
+    pe.posting_date AS payment_date
+FROM `tabPurchase Invoice` pi
+LEFT JOIN `tabPayment Entry` pe
+    ON pe.party = pi.supplier AND pe.party_type = 'Supplier'
+WHERE pe.docstatus = 1 OR pe.name IS NULL
+ORDER BY pi.posting_date DESC, pe.posting_date DESC;
+
+
+
+
+| Statut (`status`)      | Signification                                                             |
+| ---------------------- | ------------------------------------------------------------------------- |
+| **Draft**              | La facture est encore à l'état de brouillon (non soumise).                |
+| **Submitted**          | Elle est soumise mais son statut précis dépend de son paiement.           |
+| **Unpaid**             | Facture soumise mais aucun paiement encore effectué.                      |
+| **Partly Paid**        | Une partie de la facture a été payée.                                     |
+| **Paid**               | La facture a été complètement payée.                                      |
+| **Overdue**            | La date d’échéance est dépassée et la facture n’est pas totalement payée. |
+| **Cancelled**          | La facture a été annulée.                                                 |
+| **Credit Note Issued** | Une note de crédit a été émise contre cette facture.                      |
+
+✅ Représentent des factures impayées :
+| Statut          | Description                                                                    |
+| --------------- | ------------------------------------------------------------------------------ |
+| **Unpaid**      | Aucune somme n’a encore été payée.                                             |
+| **Partly Paid** | Une partie de la facture a été payée, mais il reste un montant à régler.       |
+| **Overdue**     | La facture n’est pas totalement réglée **et la date d’échéance est dépassée**. |
+
+
+
+Dans ERPNext, la table du grand livre (general ledger) s'appelle :
+▶️ tabGL Entry   
+
+✅ 1. Requête SQL pour identifier le Doctype d'une table
+SELECT name 
+FROM `tabDocType` 
+WHERE `db_table` = 'tabPurchase Invoice';

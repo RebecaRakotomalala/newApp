@@ -132,5 +132,60 @@ namespace newApp.Services
 
             return data;
         }
+
+        public async Task<byte[]> ExportFacturePdfAsync(string devisName)
+        {
+            FrappeAuthHelper.AjouterAuthorization(_httpClient);
+
+            var pdfUrl = $"http://erpnext.localhost:8000/api/method/frappe.utils.print_format.download_pdf?doctype=Request for Quotation&name={devisName}&format=Standard&no_letterhead=0";
+
+            var response = await _httpClient.GetAsync(pdfUrl);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Erreur lors de la génération du PDF : " + content);
+                return null;
+            }
+
+            return await response.Content.ReadAsByteArrayAsync();
+        }
+
+        public async Task<byte[]> ExportFactureCsvAsync(string devisName)
+        {
+            FrappeAuthHelper.AjouterAuthorization(_httpClient);
+
+            var csvUrl = $"http://erpnext.localhost:8000/api/method/frappe.desk.report.get_csv?report_name=Request for Quotation&filters={{\"name\":\"{devisName}\"}}";
+
+            var response = await _httpClient.GetAsync(csvUrl);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Erreur lors de la génération du CSV : " + content);
+                return null;
+            }
+
+            return await response.Content.ReadAsByteArrayAsync();
+        }
+
+        public async Task<byte[]> ExportSupplierQuotationPdfAsync(string devisName)
+        {
+            FrappeAuthHelper.AjouterAuthorization(_httpClient);
+
+            var pdfUrl = $"http://erpnext.localhost:8000/api/method/frappe.utils.print_format.download_pdf?doctype=Supplier Quotation&name={devisName}&format=Standard&no_letterhead=0";
+
+            var response = await _httpClient.GetAsync(pdfUrl);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Erreur lors de la génération du PDF Supplier Quotation : " + content);
+                return null;
+            }
+
+            return await response.Content.ReadAsByteArrayAsync();
+        }
+
     }
 }

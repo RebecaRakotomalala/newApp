@@ -123,5 +123,50 @@ namespace newApp.Controllers
                 return View("DevisFournisseur");
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> ExportFromErpNext(string devisName)
+        {
+            if (string.IsNullOrEmpty(devisName))
+                return BadRequest("Le nom de la facture est requis.");
+
+            var pdfBytes = await _fournisseurService.ExportFacturePdfAsync(devisName);
+
+            if (pdfBytes == null)
+                return NotFound("Impossible de générer le PDF de la facture.");
+
+            return File(pdfBytes, "application/pdf", $"{devisName}_copie.pdf");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CsvFromErpNext(string devisName)
+        {
+            var csvBytes = await _fournisseurService.ExportFactureCsvAsync(devisName);
+            if (csvBytes == null)
+            {
+                return Content("Échec de l’export CSV.");
+            }
+
+            var csvName = $"{devisName}_csv.csv";
+            return File(csvBytes, "text/csv", csvName);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ExportFromErpNextDevis(string devisName)
+        {
+            if (string.IsNullOrEmpty(devisName))
+            {
+                return BadRequest("Le nom du devis est manquant.");
+            }
+
+            var pdfBytes = await _fournisseurService.ExportSupplierQuotationPdfAsync(devisName);
+
+            if (pdfBytes == null)
+                return NotFound("Impossible de générer le PDF de la facture.");
+
+            var pdfFileName = $"{devisName}_SupplierQuotation.pdf";
+            return File(pdfBytes, "application/pdf", pdfFileName);
+        }
+
     }
 }

@@ -24,6 +24,16 @@ namespace newApp.Models
         [JsonProperty("supplier")]
         public string Supplier { get; set; }
 
+        [JsonProperty("grand_total")]
+        public decimal GrandTotal { get; set; }
+
+        [JsonProperty("paid_amount")]
+        public decimal PaidAmount { get; set; }
+
+        [JsonProperty("outstanding_amount")]
+
+        public decimal OutstandingAmount { get; set; }
+
         [JsonProperty("items")]
         public List<FactureItem> Items { get; set; }
     }
