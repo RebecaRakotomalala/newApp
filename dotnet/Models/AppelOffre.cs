@@ -19,7 +19,7 @@ namespace newApp.Models
         public DateTime DateTransaction { get; set; }
 
         [JsonProperty("date_livraison_prevue")]
-        public DateTime DateLivraisonPrevue { get; set; }
+        public DateTime? DateLivraisonPrevue { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }

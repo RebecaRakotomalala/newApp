@@ -10,6 +10,9 @@ use _abcd022bd4ccf1e6;
 wine /opt/looping-mcd/Looping.exe
 
 
+stackoverflow, MDN Web Docs, w3schools,
+
+
 ------- Voir appel d'ouffre where fournisseur
 SELECT 
     rqf.name AS numero_devis,
@@ -153,3 +156,30 @@ Dans ERPNext, la table du grand livre (general ledger) s'appelle :
 SELECT name 
 FROM `tabDocType` 
 WHERE `db_table` = 'tabPurchase Invoice';
+
+
+
+
+SELECT 
+    po.supplier,
+    po.name AS purchase_order,
+    pi.name AS purchase_invoice,
+    po.per_received,
+    po.grand_total,
+    po.status AS status_po,
+    pi.status AS status_pi,
+    pi.outstanding_amount,
+    pii.item_name,
+    pii.qty,
+    pii.rate,
+    pii.amount
+FROM 
+    tabPurchase Order po
+JOIN 
+    tabPurchase Invoice Item pii ON pii.purchase_order = po.name
+JOIN 
+    tabPurchase Invoice pi ON pi.name = pii.parent
+GROUP BY 
+    po.name, pi.name, po.per_received, po.grand_total,pi.status,po.supplier,
+    pii.rate, pii.amount, pii.qty, pii.item_name,
+     po.status, pi.outstanding_amount;

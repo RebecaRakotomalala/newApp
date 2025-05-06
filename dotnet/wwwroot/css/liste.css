@@ -201,6 +201,56 @@
     border-left: 3px solid #cbd5e0;
 }
 
+/* Style pour le bouton Valider le devis */
+.btn-submit-devis {
+    background-color: #28a745; /* Vert plus vif */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.btn-submit-devis:hover {
+    background-color: #218838; /* Vert plus foncé au survol */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn-submit-devis:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+}
+
+.btn-submit-devis i {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-submit-devis:hover i {
+    transform: translateX(3px);
+}
+
+/* Animation de confirmation */
+@keyframes submitPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-submit-devis.pulse {
+    animation: submitPulse 0.5s ease;
+}
+
 /* ============ Responsive ============ */
 @media (max-width: 768px) {
     .select-form {

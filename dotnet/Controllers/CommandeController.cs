@@ -57,5 +57,55 @@ namespace newApp.Controllers
                 return View("Index", new List<Fournisseur>());
             }
         }
+
+    //     [HttpGet]
+    //     public async Task<IActionResult> Status(string id, string status)
+    //     {
+    //         try
+    //         {
+    //             var fournisseurs = await _commandeService.GetAllFournisseur(); 
+    //             ViewBag.Fournisseur = id;
+
+    //             var statusOptions = new List<string>
+    //             {
+    //                 "Recu",
+    //                 "Paye"
+    //             };
+
+    //             List<Status> commande = new List<Status>();
+
+    //             if (!string.IsNullOrEmpty(id))
+    //             {
+    //                 var allCommandes = await _commandeService.GetBonCommandeFacturesParFournisseur(id);
+
+    //                 if (status == "Recu")
+    //                 {
+    //                     commande = allCommandes
+    //                         .Where(c => c.Per_Received == 100 && c.Outstanding_Amount > 0)
+    //                         .ToList();
+    //                 }
+    //                 else if (status == "Paye")
+    //                 {
+    //                     commande = allCommandes
+    //                         .Where(c => c.Per_Received == 100 && c.Outstanding_Amount == 0)
+    //                         .ToList();
+    //                 }
+    //             }
+
+    //             ViewBag.BonCommande = commande;  
+    //             ViewBag.StatusOptions = statusOptions;
+    //             return View("Index", fournisseurs); 
+    //         }
+    //         catch (HttpRequestException ex)
+    //         {
+    //             ViewBag.Erreur = $"Erreur HTTP : {ex.Message}";
+    //             return View("Index", new List<Fournisseur>());
+    //         }
+    //         catch (System.Exception ex)
+    //         {
+    //             ViewBag.Erreur = $"Erreur interne : {ex.Message}";
+    //             return View("Index", new List<Fournisseur>());
+    //         }
+    //     }
     }
 }

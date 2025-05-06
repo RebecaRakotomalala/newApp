@@ -125,6 +125,22 @@ namespace newApp.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> SubmitDevis(string devisName, string fournisseurId)
+        {
+            try
+            {
+                await _fournisseurService.SubmitQuotationAsync(devisName);
+                TempData["Success"] = "Le devis a été validé avec succès.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Erreur"] = "Erreur lors de la validation : " + ex.Message;
+            }
+
+            return RedirectToAction("Index", new { id = fournisseurId });
+        }
+
+        [HttpPost]
         public async Task<IActionResult> ExportFromErpNext(string devisName)
         {
             if (string.IsNullOrEmpty(devisName))

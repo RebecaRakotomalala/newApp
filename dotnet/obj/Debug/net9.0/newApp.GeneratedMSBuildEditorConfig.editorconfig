@@ -24,6 +24,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29tbWFuZGUvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/rebeca/Documents/Eval/newApp/dotnet/Views/CommandeStatut/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29tbWFuZGVTdGF0dXQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/rebeca/Documents/Eval/newApp/dotnet/Views/Facture/Calendar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmFjdHVyZS9DYWxlbmRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

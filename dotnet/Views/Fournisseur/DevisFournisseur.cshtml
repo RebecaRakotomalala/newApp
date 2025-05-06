@@ -5,6 +5,10 @@
     ViewBag.Title = "Liste des Devis du Fournisseur";
 }
 
+@{
+    var devisDraft = Model.FirstOrDefault(d => d.Status == "Draft");
+}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -94,6 +98,17 @@
                     </tbody>
                 </table>
                 </div>
+                
+                @if (devisDraft != null)
+                {
+                    <form method="post" action="/Fournisseur/SubmitDevis" style="margin-top: 20px;">
+                        <input type="hidden" name="devisName" value="@devisDraft.SupplierQuotationNumber" />
+                        <input type="hidden" name="fournisseurId" value="@devisDraft.Supplier" />
+                        <button type="submit" class="btn-submit-devis">
+                            <i class="fas fa-paper-plane"></i> Valider le devis
+                        </button>
+                    </form>
+                }
             }
             else
             {

@@ -1,0 +1,127 @@
+@model List<newApp.Models.Fournisseur>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des données</title>
+    <link rel="stylesheet" href="~/css/style2.css"> 
+    <link rel="stylesheet" href="~/css/liste.css">
+    <link rel="stylesheet" href="~/css/styleTab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Inclure la sidebar -->
+        @await Html.PartialAsync("_Sidebar")
+
+        <div class="main-content">
+            <h2>Supplier</h2>
+
+            @if (ViewBag.Erreur != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Erreur</div>
+            }
+            else if (Model != null && Model.Count > 0)
+            {
+                <form method="get" action="/CommandeStatut/Index" class="select-form">
+                    <div class="custom-select-container">
+                        <select name="id" class="custom-select" required>
+                            <option value="">-- Sélectionnez un fournisseur --</option>
+                            @foreach (var f in Model)
+                            {
+                                <option value="@f.name">@f.name</option>
+                            }
+                        </select>
+                        <div class="select-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="custom-select-container">
+                        <select name="statut" class="custom-select">
+                            <option value="">-- Tous les statuts --</option>
+                            @foreach (var status in ViewBag.Statuts as List<string>)
+                            {
+                                <option value="@status">@status</option>
+                            }
+                        </select>
+                        <div class="select-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="select-button">
+                        <i class="fas fa-search"></i> Recherchée
+                    </button>
+                </form>
+            }
+            else
+            {
+                <p>Aucun fournisseur trouvé.</p>
+            }
+
+            @if (ViewBag.Commandes != null && ((List<newApp.Models.Statut>)ViewBag.Commandes).Count > 0)
+            {
+                <h3>Purchase Order : @ViewBag.Fournisseur</h3>
+
+                <div class="table-responsive">
+                <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Commande</th>
+                        @* <th>Facture</th> *@
+                        @* <th>Fournisseur</th> *@
+                        @* <th>Date Transaction</th> *@
+                        <th>Livraison Prévue</th>
+                        <th>Article</th>
+                        @* <th>Nom Article</th> *@
+                        <th>Quantité</th>
+                        <th>Prix Unitaire</th>
+                        @* <th>Montant</th> *@
+                        <th>Total</th>
+                        <th>% Reçu</th>
+                        @* <th>Statut PO</th> *@
+                        @* <th>Statut PI</th> *@
+                        <th>Montant Restant</th>
+                        @* <th>Statut Personnalisé</th> *@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var bon in (List<newApp.Models.Statut>)ViewBag.Commandes)
+                    {
+                        <tr>
+                            <td>@bon.numero_commande</td>
+                            @* <td>@bon.numero_facture</td> *@
+                            @* <td>@bon.supplier</td> *@
+                            @* <td>@bon.date_transaction</td> *@
+                            <td>@bon.date_livraison_prevue</td>
+                            <td>@bon.item_code</td>
+                            @* <td>@bon.item_name</td> *@
+                            <td>@bon.qty</td>
+                            <td>@bon.rate</td>
+                            @* <td>@bon.amount</td> *@
+                            <td>@bon.grand_total</td>
+                            <td>@bon.per_received %</td>
+                            @* <td>@bon.status_po</td> *@
+                            @* <td>@bon.status_pi</td> *@
+                            <td>@bon.outstanding_amount</td>
+                            @* <td>@bon.custom_status</td> *@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+            }
+            else
+            {
+                <p>Aucun Commande trouvé.</p>
+            }
+        </div>
+    </div>
+</body>
+</html>

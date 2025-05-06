@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using newApp.Models;
 using newApp.Helpers; // Importer le helper
+using Newtonsoft.Json;
+using System.Text;
 
 namespace newApp.Services
 {
@@ -187,5 +189,23 @@ namespace newApp.Services
             return await response.Content.ReadAsByteArrayAsync();
         }
 
+        public async Task<bool> SubmitQuotationAsync(string quotationName)
+        {
+            FrappeAuthHelper.AjouterAuthorization(_httpClient);
+
+            string url = $"http://erpnext.localhost:8000/api/resource/Supplier Quotation/{quotationName}";
+
+            var updateData = new
+            {
+                docstatus = 1 
+            };
+
+            var content = new StringContent(JsonConvert.SerializeObject(updateData), Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PutAsync(url, content);
+            response.EnsureSuccessStatusCode();
+
+            return response.IsSuccessStatusCode;
+        }
     }
 }
